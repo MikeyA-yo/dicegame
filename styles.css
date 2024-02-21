@@ -52,3 +52,12 @@ button{
   font-size: 3.5rem;
   border-radius: 30px;
 }
+#sub1, #sub2{
+  font-size: 1rem;
+  width:5rem;
+}
+#player1, #player2{
+  width: 8rem;
+  height: 1.2rem;
+  border-radius: 2rem;
+}

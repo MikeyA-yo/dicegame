@@ -44,48 +44,37 @@ function player2() {
    click2();
    winner();
 }
-
-   let person1Name= prompt("what is your name player 1?");
-  
-   let person2Name=prompt("what is your name player 2?");
+let person1Name;
+let person2Name;
+function get1(){
+   let field = document.getElementById('player1');
+   person1Name =  field.value;
+   field.value= '';
+   field.setAttribute('placeholder', person1Name);
+}
+function get2(){
+   let field = document.getElementById('player2');
+   person2Name=field.value;
+   field.value= '';
+   field.setAttribute('placeholder', person2Name);
+}
+document.getElementById('sub1').addEventListener('click', get1);
+document.getElementById('sub2').addEventListener('click', get2);
+    
 
 
  
 function winner() {
  //winner announcing
- if (person1Name !== null && person2Name !== null) {
+
    if (randomNumber1==randomNumber2) {
       document.querySelector("h1").innerHTML="It's a draw 🎲";
    } else if (randomNumber1 > randomNumber2) {
-      document.querySelector("h1").innerHTML="🚩"+person1Name+" won this one";
+      document.querySelector("h1").innerHTML=person1Name ? person1Name +" won this one" :"🚩Player 1 won this one";
    }else{
-      document.querySelector("h1").innerHTML=person2Name+" won this one🚩";
+      document.querySelector("h1").innerHTML=person2Name ? person2Name +" won this one" :"🚩Player 2 won this one";
    };  
- } else if (person1Name !== null && person2Name == null){
-   if (randomNumber1==randomNumber2) {
-      document.querySelector("h1").innerHTML="It's a draw 🎲";
-   } else if (randomNumber1 > randomNumber2) {
-      document.querySelector("h1").innerHTML="🚩"+person1Name+" won this one";
-   }else{
-      document.querySelector("h1").innerHTML="Player 2 won this one🚩";
-   };  
- }else if (person1Name ==null && person2Name !== null) {
-   if (randomNumber1==randomNumber2) {
-      document.querySelector("h1").innerHTML="It's a draw 🎲";
-   } else if (randomNumber1 > randomNumber2) {
-      document.querySelector("h1").innerHTML="🚩Player 1 won this one";
-   }else{
-      document.querySelector("h1").innerHTML=person2Name+" won this one🚩";
-   };  
- }else{
-   if (randomNumber1==randomNumber2) {
-      document.querySelector("h1").innerHTML="It's a draw 🎲";
-   } else if (randomNumber1 > randomNumber2) {
-      document.querySelector("h1").innerHTML="🚩Player 1 won this one";
-   }else{
-      document.querySelector("h1").innerHTML="Player 2 won this one🚩";
-   };  
- }
+ 
  
 }
  
